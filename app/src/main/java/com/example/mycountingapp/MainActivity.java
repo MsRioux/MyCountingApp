@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         Log.w("warning", "-----------You want to be careful with that--------------");
         Log.wtf("What a Terrible Failure", "------------------That one is REALLY BAD----------------");
 
-        Toast.makeText(this, "Your toast is ready!",Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "Your toast is ready!",Toast.LENGTH_LONG).show();
     }
 
     public void onClickFirstButton(View view)
@@ -37,7 +37,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickSecondButton(View view)
     {
-        Toast.makeText(this,"You clicked the second button like a PRO!!", Toast.LENGTH_SHORT).show();
+        num1--;
+        TextView introTextView = (TextView) findViewById(R.id.introTV);// the introTV is the name of the TV to be updated
+        introTextView.setText("You now have " + num1 + " fishies.");
+        //Toast.makeText(this,"You clicked the second button like a PRO!!", Toast.LENGTH_SHORT).show();
     }
 
     public void onClickGoToScnTwo (View view)
