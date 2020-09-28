@@ -30,16 +30,14 @@ public class MainActivity extends AppCompatActivity {
     public void onClickFirstButton(View view)
     {
         num1++;
-        TextView introTextView = (TextView) findViewById(R.id.introTV);// the introTV is the name of the TV to be updated
-        introTextView.setText("You now have " + num1 + " fishies.");
+        updateIntroTV();
        // Toast.makeText(this,"You clicked the first button", Toast.LENGTH_LONG).show();
     }
 
     public void onClickSecondButton(View view)
     {
         num1--;
-        TextView introTextView = (TextView) findViewById(R.id.introTV);// the introTV is the name of the TV to be updated
-        introTextView.setText("You now have " + num1 + " fishies.");
+        updateIntroTV();
         //Toast.makeText(this,"You clicked the second button like a PRO!!", Toast.LENGTH_SHORT).show();
     }
 
@@ -47,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     {
         startActivity(new Intent(MainActivity.this, Screen2.class));
     }
- /*
+
     public void openDialogue(View view)
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -56,12 +54,26 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int i) {
                 Toast.makeText(MainActivity.this, "yessiree", Toast.LENGTH_LONG).show();
+                num1 = 0;
+                updateIntroTV();
+            }
+        });
+        builder.setNegativeButton("Nope", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int i) {
 
             }
-        })
+        });
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
     }
 
-  */
+    private void updateIntroTV()
+    {
+        TextView introTextView = (TextView) findViewById(R.id.introTV);// the introTV is the name of the TV to be updated
+        introTextView.setText("You now have " + num1 + " fishies.");
+    }
+
 
 
 }
